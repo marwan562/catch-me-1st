@@ -9,9 +9,11 @@
   </head>
   <body>
     <div
-      class="min-h-0 w-full bg-[var(--secondary-foreground)] font-playfairDisplay overflow-hidden"
+      class="min-h-0 w-full bg-[var(--secondary-foreground)] font-playfairDisplay"
     >
-      <div class="font-semibold border-black border-x-2 max-w-full mx-[16px]">
+      <div
+        class="font-semibold border-black border-x-2 max-w-full mx-[16px] overflow-hidden"
+      >
         <div class="mx-[12px] md:mx-[30px]">
           <!-- Navbar -->
 
@@ -82,49 +84,42 @@
                   </g>
                 </svg>
 
-                <div class="paint-bruch-big">
-                  <div className="relative z-[9999] text-white font-orbitron">
-                    <div
-                      id="menu"
-                      class="absolute top-[30px] flex-row gap-1.5 -right-[100px] rounded-md bg-[var(--primary)] backdrop-blur-2xl shadow-2xl h-[40px] w-[200px] hidden"
+                <div class="palette-color">
+                  <div
+                    id="menu"
+                    class="absolute top-[30px] cursor-pointer -right-[100px] rounded-md bg-[var(--primary)] backdrop-blur-2xl shadow-2xl h-[40px] w-[200px] hidden"
+                  >
+                    <select
+                      id="theme-select"
+                      class="w-full bg-white border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-2 focus:ring-[var(--primary)] focus:border-[var(--primary)] p-1"
                     >
-                      <select
-                        id="theme-select"
-                        class="w-full bg-white border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-2 focus:ring-[var(--primary)] focus:border-[var(--primary)] p-1"
-                      >
-                        <option value="red">🔴 Red</option>
-                        <option value="yellow">🟡 Yellow</option>
-                        <option value="blue">🔵 Blue</option>
-                        <option value="zinc">⚫ Zinc</option>
-                      </select>
-                    </div>
-                    <button id="btn-menu" class="cursor-pointer left-0">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      >
-                        <path
-                          d="M12 22a1 1 0 0 1 0-20 10 9 0 0 1 10 9 5 5 0 0 1-5 5h-2.25a1.75 1.75 0 0 0-1.4 2.8l.3.4a1.75 1.75 0 0 1-1.4 2.8z"
-                        />
-                        <circle cx="13.5" cy="6.5" r=".5" fill="currentColor" />
-                        <circle
-                          cx="17.5"
-                          cy="10.5"
-                          r=".5"
-                          fill="currentColor"
-                        />
-                        <circle cx="6.5" cy="12.5" r=".5" fill="currentColor" />
-                        <circle cx="8.5" cy="7.5" r=".5" fill="currentColor" />
-                      </svg>
-                    </button>
+                      <option value="red">🔴 Red</option>
+                      <option value="yellow">🟡 Yellow</option>
+                      <option value="blue">🔵 Blue</option>
+                      <option value="zinc">⚫ Zinc</option>
+                    </select>
                   </div>
+                  <button id="btn-menu" class="cursor-pointer left-0">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path
+                        d="M12 22a1 1 0 0 1 0-20 10 9 0 0 1 10 9 5 5 0 0 1-5 5h-2.25a1.75 1.75 0 0 0-1.4 2.8l.3.4a1.75 1.75 0 0 1-1.4 2.8z"
+                      />
+                      <circle cx="13.5" cy="6.5" r=".5" fill="currentColor" />
+                      <circle cx="17.5" cy="10.5" r=".5" fill="currentColor" />
+                      <circle cx="6.5" cy="12.5" r=".5" fill="currentColor" />
+                      <circle cx="8.5" cy="7.5" r=".5" fill="currentColor" />
+                    </svg>
+                  </button>
                 </div>
                 <li
                   class="transition-all ease-in-out cursor-pointer duration-200 hover:underline"
@@ -160,7 +155,7 @@
               >
                 <h2 class="title dark:text-primary">Your World Through</h2>
                 <span
-                  class="title text-[var(--primary-foreground)] dark:text-[var(--primary-foreground)]"
+                  class="title font-orbitron text-[var(--primary-foreground)] dark:text-[var(--primary-foreground)]"
                 >
                   My Lens.
                 </span>
@@ -182,13 +177,13 @@
                   class="flex flex-col relative md:flex-row gap-2 md:gap-9 justify-between items-start"
                 >
                   <h2
-                    class="text-secondary relative text-[20px] md:text-[24px]"
+                    class="font-orbitron text-secondary relative text-[20px] md:text-[24px]"
                   >
                     Marwan
                     <svg
-                      class="absolute -left-3 -top-3 md:-top-2 md:-left-14 stroke-[var(--primary-foreground)]"
-                      width="290"
-                      height="150"
+                      class="absolute -left-16 -top-3 md:-top-2 md:-left-14 stroke-[var(--primary-foreground)]"
+                      width="320"
+                      height="160"
                       viewBox="-110 12 400 200"
                       xmlns="http://www.w3.org/2000/svg"
                     >
@@ -201,7 +196,7 @@
                     </svg>
                   </h2>
                   <p
-                    class="parag text-[24px] underline underline-offset-2 underline-black decoration-[var(--primary-foreground)] text-[var(--primary)] flex-1"
+                    class="parag font-orbitron text-[20px] underline underline-offset-2 underline-black decoration-[var(--primary-foreground)] text-[var(--primary)] flex-1"
                   >
                     Creative Developer specializing in interactive web
                     experiences using GSAP, Three.js, and modern UI/UX design.
@@ -304,6 +299,245 @@
           </section>
         </div>
       </div>
+      <!-- About Me Section -->
+      <section
+        id="about-me-section"
+        class="relative text-[var(--primary)] bg-[var(--secondary-foreground)] pb-[40px] min-h-0 max-w-full mt-10"
+      >
+        <div class="px-[16px] md:px-[135px]">
+          <div
+            class="flex flex-col md:flex-row justify-between items-end md:items-center gap-6 md:gap-0"
+          >
+            <div
+              class="mt-5 md:mt-0 flex flex-row items-start md:-ml-[89px] justify-start gap-5"
+            >
+              <span
+                class="leading-none self-start mb-auto font-thin text-[32px] md:text-[48px] text-[var(--primary-foreground)]"
+              >
+                02/
+              </span>
+              <p
+                class="aboutme mt-0 font-semibold w-full text-wrap md:w-[380px] md:text-balance text-[14px] md:text-[18px]"
+              >
+                I Craft immersive digital experiences by blending motion, 3D,
+                and interactivity. In this project, I explored the harmony
+                between smooth animation and visual depth, using GSAP and
+                Three.js to reveal the hidden beauty in minimal, structured
+                design.
+              </p>
+            </div>
+
+            <div
+              class="flex flex-col items-center justify-center gap-1 md:gap-2 overflow-hidden"
+            >
+              <img
+                src="/images-section-2/image.png"
+                alt="image-1"
+                class="image aspect-auto border-2 rounded-md p-1 border-[var(--primary-foreground)] object-contain max-w-[110px] max-h-[120px] md:max-w-[210px] md:max-h-[230px]"
+              />
+              <div
+                class="flex flex-row items-center justify-center gap-[8px] md:gap-3"
+              >
+                <a
+                  target="_blank"
+                  href="https://www.linkedin.com/in/marwan-hassan-18901a297/"
+                  class="underline uppercase text-[10px] md:text-[16px]"
+                >
+                  Linkedin
+                </a>
+                <a
+                  target="_blank"
+                  href="http://marwan-hassan.vercel.app"
+                  class="underline uppercase text-[10px] md:text-[16px]"
+                >
+                  Website
+                </a>
+                <a
+                  target="_blank"
+                  href="https://www.instagram.com/m_v65n/"
+                  class="underline uppercase text-[10px] md:text-[16px]"
+                >
+                  Instagram
+                </a>
+              </div>
+            </div>
+          </div>
+          <div
+            id="aboutme-text"
+            class="mt-[47px] md:mt-[80px] font-[700] w-full text-center flex items-center justify-center text-[#6D6D6D47] leading-[98px] text-[104px] md:text-[200px] uppercase"
+          >
+            About me
+          </div>
+          <div class="flex flex-col items-end justify-end">
+            <div
+              class="flex flex-col md:mr-[81px] gap-[16px] md:gap-[18px] items-start justify-end pl-14 md:pl-0 mt-[40px] md:mt-[50px]"
+            >
+              <h2 class="text-[24px] font-[600]">Experience</h2>
+              <p
+                class="aboutme max-w-[271px] leading-[18.2px] text-balance tracking-wide md:leading-[21.8px] font-[400] text-[14px] md:text-[16px]"
+              >
+                Over 2 years crafting interactive web experiences using GSAP,
+                Three.js, My work blends technical precision with a creative
+                pursuit of clean, immersive, and engaging interfaces.
+              </p>
+            </div>
+            <div class="overflow-hidden">
+              <button
+                id="btn"
+                class="flex flex-row items-center -mr-[10px] justify-center border-l-2 p-1.5 transition-all duration-300 ease-in-out md:p-[14px] gap-[10px] md:gap-[17px] border-[var(--primary)] font-[700] text-[14.4px] md:text-[16px] uppercase mt-[36px] md:mt-[46px]"
+              >
+                Read More
+                <svg
+                  class="size-[28px] md:size-[32px]"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    class="stroke-[var(--primary-foreground)]"
+                    d="M14.4297 5.92969L20.4997 11.9997L14.4297 18.0697"
+                  />
+                  <path
+                    class="stroke-[var(--primary-foreground)]"
+                    d="M3.5 12H20.33"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+          <div class="flex flex-row mt-[125px] md:mt-[74px] justify-between">
+            <div class="flex flex-col justify-start max-w-[284px] gap-[24px]">
+              <h2 class="text-[20px] md:text-[24px] font-[600]">Vision</h2>
+              <p
+                class="aboutme text-[12px] md:text-[14px] leading-[15.6px] md:leading-[18.2px] font-[400]"
+              >
+                To reveal the harmony within spaces often overlooked. Through
+                careful composition, each photograph reflects the calm within
+                the chaos of urban life.
+              </p>
+            </div>
+            <div
+              class="hidden md:flex overflow-hidden flex-row items-start gap-[16px]"
+            >
+              <img
+                src="/images-section-2/your-image-2.png"
+                alt="image-2"
+                class="image border-2 p-1 border-[var(--primary-foreground)] rounded-md object-contain aspect-auto h-[230px] w-[203px]"
+              />
+              <img
+                src="/images-section-2/your-image-3.png"
+                alt="image-3"
+                class="image border-2 p-1 border-[var(--primary-foreground)] rounded-md object-contain aspect-auto"
+              />
+            </div>
+          </div>
+          <div class="mt-[289px] flex flex-col md:flex-row justify-between">
+            <div
+              class="flex-1 flex flex-col gap-[24px] md:gap-[40px] max-w-[480px]"
+            >
+              <div
+                class="flex flex-col text-end justify-end items-end gap-[12px] md:gap-[16px]"
+              >
+                <h2
+                  class="italic text-[40px] text-[var(--primary-foreground)] font-[600] md:font-[700] leading-[28px]"
+                >
+                  +500k
+                </h2>
+                <p
+                  class="dark:text-[#A7A7A7] text-[12px] md:text-[14px] font-[400] max-w-[196px] md:max-w-[229px]"
+                >
+                  Memorable Moments Captured in Portraits, Events, and Natur
+                </p>
+              </div>
+              <div
+                class="flex flex-col text-start justify-start items-start gap-[12px] md:gap-[16px]"
+              >
+                <h2
+                  class="italic text-[40px] text-[var(--primary-foreground)] font-[600] md:font-[700] leading-[28px]"
+                >
+                  +300k
+                </h2>
+                <p
+                  class="dark:text-[#A7A7A7] text-[12px] md:text-[14px] font-[400] max-w-[196px] md:max-w-[229px]"
+                >
+                  Satisfied Clients Trusting My Lens for Their Special Occasions
+                </p>
+              </div>
+            </div>
+            <div
+              class="mt-[53px] md:hidden flex flex-row justify-between items-start gap-[16px] overflow-hidden"
+            >
+              <img
+                src="/images-section-2/your-image-2.png"
+                alt="image-2"
+                class="image border-2 p-1 border-[var(--primary-foreground)] rounded-md object-contain aspect-auto h-[190px] md:w-[203px]"
+              />
+              <img
+                src="/images-section-2/your-image-3.png"
+                alt="image-3"
+                class="image border-2 p-1 border-[var(--primary-foreground)] rounded-md object-contain h-[162px] md:w-[140px]"
+              />
+            </div>
+            <div
+              class="pl-10 md:pl-0 max-w-[391px] aspect-auto flex-1 mt-[332px] md:mt-0"
+            >
+              <div class="flex flex-col gap-[16px] md:gap-[24px]">
+                <h2
+                  class="text-[20px] text-[var(--primary-foreground)] font-[600] md:text-[24px] leading-[31.2px]"
+                >
+                  Collaborations with
+                </h2>
+                <ul class="list-disc list-outside ms-4 md:ms-5">
+                  <li>Top lifestyle brands</li>
+                  <li>International event organizers</li>
+                  <li>Prestigious art and photography exhibitions</li>
+                </ul>
+              </div>
+              <div class="flex flex-col justify-end items-end">
+                <div class="overflow-hidden">
+                  <button
+                    id="btn"
+                    class="flex flex-row items-center -mr-[10px] justify-center border-l-2 p-1.5 transition-all duration-300 ease-in-out md:p-[14px] gap-[10px] md:gap-[17px] border-[var(--primary)] font-[700] text-[14.4px] md:text-[16px] uppercase mt-[36px] md:mt-[46px]"
+                  >
+                    Client Highlights
+                    <svg
+                      class="size-[28px] md:size-[32px]"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        class="stroke-[var(--primary-foreground)]"
+                        d="M14.4297 5.92969L20.4997 11.9997L14.4297 18.0697"
+                      />
+                      <path
+                        class="stroke-[var(--primary-foreground)]"
+                        d="M3.5 12H20.33"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          id="arrow-down"
+          class="absolute left-0 top-[31%] sm:top-[35%] md:top-[39%] translate-y-1/2 h-[55.76px] w-[70px] md:w-[72px] md:h-[104px]"
+        >
+          <svg
+            viewBox="0 0 72 104"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              class="fill-[var(--primary-foreground)]"
+              d="M70.5021 63.8729C72.3326 65.7035 72.3326 68.6715 70.5021 70.5021L39.252 101.752C37.4215 103.583 34.4535 103.583 32.6229 101.752L1.37289 70.5021C-0.45769 68.6715 -0.45769 65.7035 1.37289 63.8729C3.20347 62.0424 6.17144 62.0424 8.00202 63.8729L31.25 87.1209L31.25 35.9375C31.25 31.4793 29.8739 24.6876 25.8834 19.1452C22.0649 13.8418 15.6597 9.375 4.68746 9.375C2.09862 9.375 -4.60944e-05 7.27633 -4.59813e-05 4.6875C-4.58681e-05 2.09866 2.09863 -3.05002e-06 4.68746 -2.93686e-06C18.7152 -3.06875e-06 27.935 5.94989 33.4915 13.6673C38.876 21.1457 40.625 29.9791 40.625 35.9375L40.625 87.1209L63.8729 63.8729C65.7035 62.0424 68.6715 62.0424 70.5021 63.8729Z"
+            />
+          </svg>
+        </div>
+      </section>
     </div>
     <script type="module" src="/src/main.js"></script>
   </body>

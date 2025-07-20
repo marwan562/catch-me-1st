@@ -13,7 +13,9 @@ export const heroAnimation = (container) => {
       stagger: 0.2,
     });
 
-    gsap.fromTo(
+    const tlBlurLeft = gsap.timeline({ yoyo: true, repeat: -1 });
+    
+    tlBlurLeft.fromTo(
       "#blur-l",
       {
         translateY: -window.innerWidth,
@@ -23,7 +25,7 @@ export const heroAnimation = (container) => {
       { translateX: 0, translateY: 0, duration: 5 }
     );
 
-    gsap.to("#blur-l", {
+    tlBlurLeft.to("#blur-l", {
       translateX: 0,
       translateY: 0,
       duration: 5,

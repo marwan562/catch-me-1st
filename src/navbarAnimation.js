@@ -83,7 +83,7 @@ export const navbarAnimation = (container) => {
       }
     );
 
-    gsap.from(".paint-bruch-big", {
+    gsap.from(".palette-color", {
       opacity: 0,
       y: 20,
       rotate: 50,
@@ -91,9 +91,11 @@ export const navbarAnimation = (container) => {
       ease: "power2.inOut",
     });
 
-    gsap.to(".paint-bruch-big", {
+    gsap.to(".palette-color", {
       delay: 3,
       ease: "power2.inOut",
+      x: -5,
+      y: 5,
     });
   }, container);
 

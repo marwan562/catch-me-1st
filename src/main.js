@@ -1,9 +1,10 @@
 import gsap from "gsap";
-import { MotionPathPlugin, SplitText } from "gsap/all";
+import { MotionPathPlugin, ScrollTrigger, SplitText } from "gsap/all";
 import { navbarAnimation } from "./navbarAnimation";
 import { heroAnimation } from "./heroAnimation";
+import { aboutMeAnimation } from "./aboutmeAnimation";
 
-gsap.registerPlugin(MotionPathPlugin, SplitText);
+gsap.registerPlugin(MotionPathPlugin, ScrollTrigger, SplitText);
 
 // Change theme
 const btnMenu = document.getElementById("btn-menu");
@@ -22,12 +23,15 @@ select.addEventListener("change", (e) => {
 document.addEventListener("DOMContentLoaded", () => {
   const navbarContainer = document.getElementById("navbar");
   const heroSectionContainer = document.getElementById("hero-section");
+  const aboutMeContainer = document.getElementById("about-me-section");
 
   const revertNavbar = navbarAnimation(navbarContainer);
   const revertHero = heroAnimation(heroSectionContainer);
+  const revertAboutMe = aboutMeAnimation(aboutMeContainer);
 
   window.addEventListener("beforeunload", () => {
     revertNavbar();
     revertHero();
+    revertAboutMe();
   });
 });
