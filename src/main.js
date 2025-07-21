@@ -8,7 +8,7 @@ import {
 } from "gsap/all";
 import { navbarAnimation } from "./navbarAnimation";
 import { heroAnimation } from "./heroAnimation";
-import { aboutMeAnimation } from "./aboutmeAnimation";
+import { aboutMeAnimation } from "./aboutMeAnimation";
 import { servicesAnimation } from "./servicesAnimation";
 
 gsap.registerPlugin(
