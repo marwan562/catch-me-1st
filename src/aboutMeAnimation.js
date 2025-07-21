@@ -19,6 +19,8 @@ export const aboutMeAnimation = (container) => {
       type: "chars, lines",
       mask: "lines",
       smartWrap: true,
+      autoSplit: true,
+      deepSlice: true,
       onSplit(self) {
         self.lines.forEach((el) => {
           const splitAboutMeAnim = gsap.from(el, {
@@ -127,8 +129,7 @@ export const aboutMeAnimation = (container) => {
     const circles = document.querySelectorAll(".circle-move");
     const circles2 = document.querySelectorAll(".circle-move-2");
 
-
-  const here =  circles.forEach((el, i) => {
+    const here = circles.forEach((el, i) => {
       gsap.to(el, {
         motionPath: {
           path: line,
@@ -144,7 +145,6 @@ export const aboutMeAnimation = (container) => {
         ease: "power1.inOut",
       });
     });
-
 
     circles2.forEach((el) => {
       gsap.set(el, {
