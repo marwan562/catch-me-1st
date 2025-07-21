@@ -18,6 +18,7 @@ export const aboutMeAnimation = (container) => {
     new SplitText(".aboutme", {
       type: "chars, lines",
       mask: "lines",
+      smartWrap: true,
       onSplit(self) {
         self.lines.forEach((el) => {
           const splitAboutMeAnim = gsap.from(el, {
@@ -69,19 +70,18 @@ export const aboutMeAnimation = (container) => {
       },
     });
 
-    // Step 1: Select elements
-    const btns = gsap.utils.toArray("#btn");
-    console.log(btns);
+    const btns = document.querySelectorAll("#btn");
 
     btns.forEach((btn) => {
       gsap.from(btn, {
         xPercent: -50,
         opacity: 0,
         ease: "power2.in",
+        duration: 0.3,
+        backgroundColor: "var(--primary-foreground)",
         scrollTrigger: {
           trigger: btn,
           start: "top 91%",
-          markers: true,
           toggleActions: "play none none reverse",
         },
       });
@@ -97,6 +97,111 @@ export const aboutMeAnimation = (container) => {
         pin: true,
       },
     });
+
+    new SplitText(".number", {
+      type: "chars, words",
+      mask: "chars",
+      smartWrap: true,
+      autoSplit: true,
+      onSplit(self) {
+        self.chars.forEach((el) => {
+          const splitAboutMeAnim = gsap.from(el, {
+            y: 20,
+            opacity: 0,
+            duration: 1,
+            ease: "power2.in",
+          });
+          ScrollTrigger.create({
+            animation: splitAboutMeAnim,
+            trigger: el,
+            start: "top 90%",
+            toggleActions: "play none none reverse",
+          });
+        });
+      },
+    });
+
+    const line = document.querySelector("#bouncy-line path");
+    const line2 = document.querySelector("#bouncy-line-2 path");
+
+    const circles = document.querySelectorAll(".circle-move");
+    const circles2 = document.querySelectorAll(".circle-move-2");
+
+
+  const here =  circles.forEach((el, i) => {
+      gsap.to(el, {
+        motionPath: {
+          path: line,
+          align: line,
+          autoRotate: true,
+          alignOrigin: [0.5, 0.5],
+        },
+        rotate: 180 * i,
+        duration: 4,
+        repeat: -1,
+        yoyo: true,
+        delay: i * 0.5,
+        ease: "power1.inOut",
+      });
+    });
+
+
+    circles2.forEach((el) => {
+      gsap.set(el, {
+        autoAlpha: 1,
+      });
+    });
+
+    circles2.forEach((el, i) => {
+      gsap.to(el, {
+        motionPath: {
+          path: line2,
+          align: line2,
+          autoRotate: true,
+          autofocus: true,
+          alignOrigin: [1, 0.5],
+        },
+        rotate: 180 * (i + 20),
+        duration: 4,
+        repeat: -1,
+        yoyo: true,
+        delay: (i + 4) * 0.5,
+
+        ease: "power1.inOut",
+      });
+    });
+
+    const circleAnim1 = document.getElementById("circle-ani-2");
+    const circleAnim2 = document.getElementById("circle-ani-2");
+    const circleAnim3 = document.getElementById("circle-ani-3");
+    const circleAnim4 = document.getElementById("circle-ani-4");
+
+    const circlesAniTL = gsap.timeline({
+      scrollTrigger: {
+        trigger: circleAnim1,
+        start: "top 95%",
+        scrub: true,
+      },
+      defaults: { ease: "none" },
+    });
+
+    circlesAniTL
+      .to([circleAnim2, circleAnim3, circleAnim4], {
+        rotate: "90deg",
+        transformOrigin: "right",
+      })
+      .to([circleAnim3, circleAnim4], {
+        rotate: "180deg",
+        transformOrigin: "right",
+      })
+      .to(circleAnim4, {
+        rotate: "270deg",
+        transformOrigin: "right",
+      })
+      .to([circleAnim1, circleAnim2, circleAnim3, circleAnim4], {
+        rotate: "360deg",
+        transformOrigin: "right",
+      });
   }, container);
 
   return () => ctx.revert();

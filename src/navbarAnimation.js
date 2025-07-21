@@ -2,6 +2,20 @@ import gsap from "gsap";
 
 export const navbarAnimation = (container) => {
   const ctx = gsap.context(() => {
+    // Change theme
+    const btnMenu = document.getElementById("btn-menu");
+    const menu = document.getElementById("menu");
+    btnMenu.addEventListener("click", () => {
+      menu.classList.toggle("hidden");
+    });
+    const select = document.getElementById("theme-select");
+    select.addEventListener("change", (e) => {
+      const theme = e.target.value;
+      if (theme) {
+        document.documentElement.setAttribute("data-theme", `light-${theme}`);
+      }
+    });
+
     const path = document.getElementById("path");
     const totalLength = path.getTotalLength();
 
