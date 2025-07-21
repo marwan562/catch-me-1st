@@ -11,144 +11,137 @@
     <div
       class="min-h-0 w-full bg-[var(--secondary-foreground)] font-playfairDisplay"
     >
+      <header
+        class="fixed top-3 left-1/2 transform -translate-x-1/2 z-50 w-1/4 shadow-md py-2 pr-5 px-4 rounded-full"
+      >
+        <div
+          class="absolute inset-0 rounded-full bg-gradient-to-l from-[var(--primary-foreground)] to-[var(--primary-foreground)] via-[var(secondary-foreground)] blur-md -z-10"
+        ></div>
+
+        <nav id="navbar" class="flex flex-row items-center justify-around">
+          <div class="logo">
+            <img class="w-full" src="/svg-section-1/logo.svg" alt="logo" />
+          </div>
+          <svg
+            class="absolute -left-3 -top-3 md:-top-2 md:left-0 stroke-[var(--primary)]"
+            width="290"
+            height="150"
+            viewBox="-110 12 400 200"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              id="path"
+              d="M-30,67 C-22,80.95 44.812,78.885 65.876,72.849 91.615,65.468 100.195,62.65 133.998,41.999 193.998,48 231,47 248,22 "
+              fill="none"
+              strokeWidth="2"
+            />
+          </svg>
+          <div class="hidden md:block">
+            <ul
+              class="flex flex-row items-center relative justify-center gap-[16px]"
+            >
+              <svg
+                id="paint-bruch"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="m11 10 3 3" />
+                <path
+                  d="M6.5 21A3.5 3.5 0 1 0 3 17.5a2.62 2.62 0 0 1-.708 1.792A1 1 0 0 0 3 21z"
+                />
+                <path
+                  d="M9.969 17.031 21.378 5.624a1 1 0 0 0-3.002-3.002L6.967 14.031"
+                />
+              </svg>
+              <svg
+                class="absolute -top-6 -left-10 stroke-[var(--primary)]"
+                width="290"
+                height="150"
+                viewBox="-110 12 400 200"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  class=""
+                  id="path2"
+                  d="M-22,67 C-22,80.95 44.812,78.885 65.876,72.849 91.615,65.468 100.195,62.65 133.998,41.999 193.998,48 231,47 248,22 "
+                  fill="none"
+                  strokeWidth="2"
+                />
+                <g>
+                  <circle
+                    id="circle"
+                    cx="50"
+                    cy="50"
+                    r="5"
+                    class="fill-[var(--primary)] stroke-[var(--primary)] stroke-[2px]"
+                  />
+                </g>
+              </svg>
+
+              <div class="palette-color">
+                <div
+                  id="menu"
+                  class="absolute top-[30px] cursor-pointer -right-[100px] rounded-md bg-[var(--primary)] backdrop-blur-2xl shadow-2xl h-[40px] w-[200px] hidden"
+                >
+                  <select
+                    id="theme-select"
+                    class="w-full bg-white border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-2 focus:ring-[var(--primary)] focus:border-[var(--primary)] p-1"
+                  >
+                    <option value="blue">🔵 Blue</option>
+                    <option value="red">🔴 Red</option>
+                    <option value="yellow">🟡 Yellow</option>
+                    <option value="zinc">⚫ Zinc</option>
+                  </select>
+                </div>
+                <button id="btn-menu" class="cursor-pointer left-0">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M12 22a1 1 0 0 1 0-20 10 9 0 0 1 10 9 5 5 0 0 1-5 5h-2.25a1.75 1.75 0 0 0-1.4 2.8l.3.4a1.75 1.75 0 0 1-1.4 2.8z"
+                    />
+                    <circle cx="13.5" cy="6.5" r=".5" fill="currentColor" />
+                    <circle cx="17.5" cy="10.5" r=".5" fill="currentColor" />
+                    <circle cx="6.5" cy="12.5" r=".5" fill="currentColor" />
+                    <circle cx="8.5" cy="7.5" r=".5" fill="currentColor" />
+                  </svg>
+                </button>
+              </div>
+            </ul>
+          </div>
+          <div class="block md:hidden mt-[24px]">
+            <button class="nav-section cursor-pointer">
+              <img class="w-full" src="/svg-section-1/menu.svg" alt="menu" />
+            </button>
+          </div>
+        </nav>
+      </header>
+
       <div
         class="font-semibold border-black border-x-2 max-w-full mx-[16px] overflow-hidden"
       >
         <div class="mx-[12px] md:mx-[30px]">
           <!-- Navbar -->
 
-          <nav id="navbar" class="flex flex-row items-center justify-between">
-            <div class="logo mt-[24px] text-[var(--primary-foreground)]">
-              <img class="w-full" src="/svg-section-1/logo.svg" alt="logo" />
-            </div>
-            <svg
-              class="absolute -left-3 -top-3 md:-top-2 md:left-0 stroke-[var(--primary-foreground)]"
-              width="290"
-              height="150"
-              viewBox="-110 12 400 200"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                id="path"
-                d="M-30,67 C-22,80.95 44.812,78.885 65.876,72.849 91.615,65.468 100.195,62.65 133.998,41.999 193.998,48 231,47 248,22 "
-                fill="none"
-                strokeWidth="2"
-              />
-            </svg>
-            <div class="hidden md:block">
-              <ul
-                class="flex flex-row items-center relative justify-center gap-[16px] mt-[24px]"
-              >
-                <svg
-                  id="paint-bruch"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <path d="m11 10 3 3" />
-                  <path
-                    d="M6.5 21A3.5 3.5 0 1 0 3 17.5a2.62 2.62 0 0 1-.708 1.792A1 1 0 0 0 3 21z"
-                  />
-                  <path
-                    d="M9.969 17.031 21.378 5.624a1 1 0 0 0-3.002-3.002L6.967 14.031"
-                  />
-                </svg>
-                <svg
-                  class="absolute -top-6 -left-10 stroke-[var(--primary-foreground)]"
-                  width="290"
-                  height="150"
-                  viewBox="-110 12 400 200"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    class=""
-                    id="path2"
-                    d="M-22,67 C-22,80.95 44.812,78.885 65.876,72.849 91.615,65.468 100.195,62.65 133.998,41.999 193.998,48 231,47 248,22 "
-                    fill="none"
-                    strokeWidth="2"
-                  />
-                  <g>
-                    <circle
-                      id="circle"
-                      cx="50"
-                      cy="50"
-                      r="5"
-                      class="fill-[var(--primary-foreground)] stroke-[var(--primary-foreground)] stroke-[2px]"
-                    />
-                  </g>
-                </svg>
-
-                <div class="palette-color">
-                  <div
-                    id="menu"
-                    class="absolute top-[30px] cursor-pointer -right-[100px] rounded-md bg-[var(--primary)] backdrop-blur-2xl shadow-2xl h-[40px] w-[200px] hidden"
-                  >
-                    <select
-                      id="theme-select"
-                      class="w-full bg-white border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-2 focus:ring-[var(--primary)] focus:border-[var(--primary)] p-1"
-                    >
-                      <option value="blue">🔵 Blue</option>
-                      <option value="red">🔴 Red</option>
-                      <option value="yellow">🟡 Yellow</option>
-                      <option value="zinc">⚫ Zinc</option>
-                    </select>
-                  </div>
-                  <button id="btn-menu" class="cursor-pointer left-0">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    >
-                      <path
-                        d="M12 22a1 1 0 0 1 0-20 10 9 0 0 1 10 9 5 5 0 0 1-5 5h-2.25a1.75 1.75 0 0 0-1.4 2.8l.3.4a1.75 1.75 0 0 1-1.4 2.8z"
-                      />
-                      <circle cx="13.5" cy="6.5" r=".5" fill="currentColor" />
-                      <circle cx="17.5" cy="10.5" r=".5" fill="currentColor" />
-                      <circle cx="6.5" cy="12.5" r=".5" fill="currentColor" />
-                      <circle cx="8.5" cy="7.5" r=".5" fill="currentColor" />
-                    </svg>
-                  </button>
-                </div>
-                <li
-                  class="z-50 transition-all transform ease-in-out cursor-pointer duration-200 hover:underline"
-                >
-                  ABOUT
-                </li>
-                <li
-                  class="z-50 transition-all transform ease-in-out cursor-pointer duration-200 hover:underline"
-                >
-                  PORTFOLIO
-                </li>
-                <li
-                  class="z-50 transition-all transform ease-in-out cursor-pointer duration-200 hover:underline"
-                >
-                  CONTRACT
-                </li>
-              </ul>
-            </div>
-            <div class="block md:hidden mt-[24px]">
-              <button class="nav-section cursor-pointer">
-                <img class="w-full" src="/svg-section-1/menu.svg" alt="logo" />
-              </button>
-            </div>
-          </nav>
-
           <!-- Hero Section -->
           <section id="hero-section">
             <div
-              class="flex flex-col-reverse relative md:flex-row items-start justify-between mt-[25px] max-w-full uppercase"
+              class="flex flex-col-reverse relative md:flex-row items-start justify-between mt-[50px] max-w-full uppercase"
             >
               <div
                 class="font-extrabold text-[60px] md:text-[95px] leading-none max-w-[1258px]"

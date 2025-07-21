@@ -24,7 +24,7 @@ export const navbarAnimation = (container) => {
       motionPath: {
         path: path,
         align: path,
-        alignOrigin: [0, 0.5],
+        alignOrigin: [.5, 1],
       },
     });
 
