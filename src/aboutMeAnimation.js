@@ -89,10 +89,23 @@ export const aboutMeAnimation = (container) => {
       });
     });
 
-    gsap.to("#arrow-down", {
+    const arrowDown = document.getElementById("arrow-down");
+
+    gsap.from(arrowDown, {
+      x: -arrowDown.offsetWidth,
       ease: "none",
       scrollTrigger: {
-        trigger: "#arrow-down",
+        trigger: arrowDown,
+        start: "top 70%",
+        toggleActions: "play none none reverse",
+        markers: true,
+      },
+    });
+
+    gsap.from(arrowDown, {
+      ease: "none",
+      scrollTrigger: {
+        trigger: arrowDown,
         start: "top center",
         end: "+=500px",
         scrub: 2,
