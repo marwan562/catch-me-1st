@@ -15,6 +15,7 @@ body,
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Oswald", sans-serif;
 }
 
 /* Light Themes */
@@ -67,6 +68,68 @@ body,
     @apply underline underline-offset-2 decoration-[var(--primary-foreground)];
   }
   .square {
-    @apply bg-[var(--primary-foreground)] hover:bg-[var(--secondary-foreground)] size-10 rounded-[2px] ;
+    @apply bg-[var(--primary-foreground)] hover:bg-[var(--secondary-foreground)] size-10 rounded-[2px];
   }
+}
+
+.section-tickers {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 50px;
+  overflow: hidden;
+}
+@media (max-width: 768px) {
+  .section-tickers {
+    margin-top: 10px;
+  }
+}
+@media (min-width: 769px) {
+  .section-tickers {
+    margin-bottom: 40px;
+  }
+}
+
+.ticker {
+  padding: 1vw;
+  white-space: nowrap;
+}
+
+.ticker:first-child {
+  background-color: var(--primary-foreground);
+  transform: rotateZ(-2deg);
+  scale: 1.1;
+}
+
+.ticker:last-child {
+  background-color: #1f1f1f;
+  transform: rotateZ(2deg);
+  scale: 1.1;
+}
+
+.ticker-wrap {
+  display: flex;
+  gap: 20px;
+}
+
+.ticker-text {
+  color: #000;
+  font-size: clamp(40px, 4.375vw, 70px);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.ticker:last-child .ticker-text {
+  color: #fff;
+}
+
+.accent {
+  color: #0000008f;
+  font-family: "Caveat", cursive;
+  font-weight: 500;
+  font-size: 1.1em;
+}
+
+.ticker:last-child .accent {
+  color: var(--primary-foreground);
 }

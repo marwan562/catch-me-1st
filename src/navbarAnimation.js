@@ -12,8 +12,6 @@ export const navbarAnimation = (container) => {
     const video = document.getElementById("video");
     const showVideoMouse = document.getElementById("showVideoMouse");
 
-    console.log(menu, btnMenu, video, showVideoMouse);
-
     let isMenuOpen = false;
 
     const toggleMenu = () => {
@@ -130,16 +128,12 @@ export const navbarAnimation = (container) => {
 
     const squareSize = 40; // px
 
-    const vw = window.innerWidth;
-    const vh = window.innerHeight;
+    const vw = window.innerWidth 
+    const vh = window.innerHeight / 2 
 
     const cols = Math.ceil(vw / squareSize);
     const rows = Math.ceil(vh / squareSize);
     const total = cols * rows;
-
-    // Set grid template
-    container.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
-    container.style.gridTemplateRows = `repeat(${rows}, 1fr)`;
 
     for (let i = 0; i < total; i++) {
       const square = document.createElement("div");

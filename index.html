@@ -4,6 +4,11 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/svg-section-1/logo.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&family=Caveat:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
     <link href="/src/style.css" rel="stylesheet" />
     <title>LGTM!</title>
   </head>
@@ -140,7 +145,7 @@
       <!-- Menu Navbar -->
       <div
         id="menu-nav"
-        class="fixed font-semibold z-1000 text-2xl rounded-b-3xl h-[75%] md:h-[65%] overflow-hidden w-full px-10 py-10 grid md:grid-cols-[4fr_3fr] opacity-0 translate-y-[-100%]"
+        class="fixed font-semibold z-1000 text-2xl rounded-b-3xl h-[75%] md:h-1/2 overflow-hidden w-full px-10 py-10 grid md:grid-cols-[4fr_3fr] opacity-0 translate-y-[-100%]"
       >
         <button
           id="btn-close-menu-nav"
@@ -171,7 +176,7 @@
         <div id="video" class="space-y-2 md:w-1/2">
           <div
             id="showVideoMouse"
-            class="fixed opacity-0 scale-0 bg-gradient-to-tl from-[var(--primary-foreground)] to-[var(--primary-foreground)] size-14 rounded-full font-mono text-[12px] shadow-lg shadow-[var(--primary-foreground)] flex items-center justify-center scale-y-75"
+            class="fixed opacity-0 z-50 scale-0 bg-gradient-to-tl from-[var(--primary-foreground)] to-[var(--primary-foreground)] size-14 rounded-full font-mono text-[12px] shadow-lg shadow-[var(--primary-foreground)] flex items-center justify-center scale-y-75"
           >
             VISIT
           </div>
@@ -188,7 +193,10 @@
             autoplay
             muted
           >
-            <source src="https://res.cloudinary.com/dgba7n7ct/video/upload/v1753144855/video_r5exky.mp4" type="video/mp4" />
+            <source
+              src="https://res.cloudinary.com/dgba7n7ct/video/upload/v1753144855/video_r5exky.mp4"
+              type="video/mp4"
+            />
           </video>
           <div class="flex justify-between items-center gap-2">
             <h2 class="controls flex flex-row items-center gap-1">
@@ -792,6 +800,28 @@
         </svg>
       </div>
 
+      <div class="section-tickers">
+        <div class="ticker" data-duration="20">
+          <div class="ticker-wrap">
+            <div class="ticker-text">
+              Let's collaborate • Drop me a line at
+              <span class="accent">marwandeveloper33@gmail.com</span> •
+              Available for <span class="accent">freelance projects</span> •
+              Ready to create something amazing •
+            </div>
+          </div>
+        </div>
+        <div class="ticker" data-duration="10">
+          <div class="ticker-wrap">
+            <div class="ticker-text">
+              Connect with me <span class="accent">@M_v65n</span> • Open to new
+              <span class="accent">opportunities</span> • Let's build something
+              <span class="accent">incredible</span> together •
+            </div>
+          </div>
+        </div>
+      </div>
+
       <section
         id="service-section"
         class="container mx-auto border-l text-[var(--primary)] bg-[var(--secondary-foreground)] min-h-0 max-w-full overflow-hidden"
@@ -904,7 +934,7 @@
                 </div>
                 <div class="mt-5 md:mt-0 text-start">
                   <h2
-                    class="number italic text-[40px] font-[700] md:text-[80px]"
+                    class="number absolute mt-3.5 italic text-[40px] font-[700] z-20 md:text-[80px]"
                   >
                     +200
                   </h2>
@@ -916,7 +946,7 @@
                   </p>
                 </div>
               </div>
-              <div class="w-full mt-12">
+              <div class="w-full mt-20">
                 <p
                   class="service text-[11px] font-[700] md:text-[16px] text-wrap text-start tracking-wide"
                 >

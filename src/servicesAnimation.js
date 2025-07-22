@@ -111,6 +111,13 @@ export const servicesAnimation = (container) => {
       },
     });
 
+    const startShape = `m150 53.1 30.4 61.5 67.9 9.9-49.1 47.9 11.6 67.6-60.8-31.9L89.3 240l11.6-67.6-49.1-47.9 67.9-9.9L150 53.1z`;
+    const heartShape = `M10,30
+    A20,20 0,0,1 50,30
+    A20,20 0,0,1 90,30
+    Q90,60 50,90
+    Q10,60 10,30 Z`;
+
     gsap.to("#circle-path", {
       fill: "var(--primary-foreground)",
     });
@@ -118,22 +125,45 @@ export const servicesAnimation = (container) => {
     tl.to(
       "#circle-path",
       {
-        duration: 1.5,
-        morphSVG: `m150 53.1 30.4 61.5 67.9 9.9-49.1 47.9 11.6 67.6-60.8-31.9L89.3 240l11.6-67.6-49.1-47.9 67.9-9.9L150 53.1z`,
+        duration: 1,
+        morphSVG: startShape,
       },
       "+=1"
     ).to(
       "#circle-path",
       {
         duration: 1,
-        morphSVG: `M10,30
-    A20,20 0,0,1 50,30
-    A20,20 0,0,1 90,30
-    Q90,60 50,90
-    Q10,60 10,30 Z`,
+        morphSVG: heartShape,
       },
       "+=1"
     );
+
+      document.querySelectorAll(".ticker").forEach((ticker) => {
+        const inner = ticker.querySelector(".ticker-wrap");
+        const content = inner.querySelector(".ticker-text");
+        const duration = ticker.getAttribute("data-duration");
+        inner.append(content.cloneNode(true));
+
+        const animations = [];
+        inner.querySelectorAll(".ticker-text").forEach((element) => {
+          const animation = gsap.to(element, {
+            x: "-100%",
+            repeat: -1,
+            duration: duration,
+            ease: "linear",
+          });
+          animations.push(animation);
+        });
+
+        ticker.addEventListener("mouseenter", () => {
+          animations.forEach((anim) => anim.pause());
+        });
+
+        ticker.addEventListener("mouseleave", () => {
+          animations.forEach((anim) => anim.play());
+        });
+      });
+
   }, container);
 
   return () => ctx.revert();
