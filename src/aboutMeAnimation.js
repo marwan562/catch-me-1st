@@ -98,7 +98,6 @@ export const aboutMeAnimation = (container) => {
         trigger: arrowDown,
         start: "top 70%",
         toggleActions: "play none none reverse",
-        markers: true,
       },
     });
 

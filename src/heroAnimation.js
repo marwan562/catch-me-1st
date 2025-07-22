@@ -137,6 +137,62 @@ export const heroAnimation = (container) => {
         },
       });
     });
+
+    // hero images animation
+    const image1 = document.getElementById("image1");
+    const image2 = document.getElementById("image2");
+    const image3 = document.getElementById("image3");
+
+    const tlImages = gsap.timeline({
+      defaults: { duration: 1, ease: "expo.in" },
+    });
+    tlImages
+      .to(image1, {
+        delay: 1.5,
+        height: "66%",
+      })
+      .to(
+        image3,
+        {
+          scaleX: 1.61,
+          transformOrigin: "right",
+        },
+        "+=1.2"
+      )
+      .to(image1, {
+        width: "132%",
+      })
+      .to(
+        image2,
+        {
+          scaleX: 0.8,
+          transformOrigin: "right",
+        },
+        "-=1.3"
+      )
+      .to(
+        image3,
+        {
+          yPercent: image3.offsetHeight,
+        },
+        "+=2"
+      )
+      .to(
+        [image1, image2],
+        {
+          height: "100%",
+        },
+        "-=1"
+      )
+      .to(
+        image2,
+        {
+          scaleX: 0.7,
+          scaleY: 1.5,
+          transformOrigin: "top right",
+        },
+        "-=1.1"
+      );
   }, container);
 
   return () => ctx.revert();
