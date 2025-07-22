@@ -1,12 +1,160 @@
 import gsap from "gsap";
 
+let listeners = [];
+
 export const navbarAnimation = (container) => {
   const ctx = gsap.context(() => {
+    // open menu
+    const container = document.getElementById("background-menu");
+    const btnMenu = document.getElementById("btn-menu-nav");
+    const btnCloseMenu = document.getElementById("btn-close-menu-nav");
+    const menu = document.getElementById("menu-nav");
+    const video = document.getElementById("video");
+    const showVideoMouse = document.getElementById("showVideoMouse");
+
+    console.log(menu, btnMenu, video, showVideoMouse);
+
+    let isMenuOpen = false;
+
+    const toggleMenu = () => {
+      isMenuOpen = !isMenuOpen;
+
+      if (isMenuOpen) {
+        // opening the menu
+        gsap.to(menu, {
+          y: "0%",
+          opacity: 1,
+          duration: 0.5,
+          ease: "power4.out",
+        });
+
+        gsap
+          .timeline()
+          .from(".video", {
+            delay: 0.4,
+            x: -60,
+            duration: 0.4,
+            opacity: 0,
+          })
+          .from(".controls", {
+            y: 20,
+            stagger: { each: 0.3 },
+            duration: 0.8,
+            opacity: 0,
+          });
+
+        gsap.from(".content-menu", {
+          x: 40,
+          stagger: { each: 0.3 },
+          duration: 1,
+          scale: 0,
+          opacity: 0,
+          ease: "power1.in",
+        });
+
+        gsap.to(".square", {
+          opacity: 1,
+          scale: 1,
+          stagger: {
+            each: 0.01,
+            from: "random",
+          },
+          duration: 0.1,
+          ease: "power3.in",
+        });
+      } else {
+        // closing the menu
+        gsap.to(menu, {
+          y: "-100%",
+          opacity: 0,
+          duration: 0.5,
+          ease: "power4.in",
+        });
+
+        gsap.to(".square", {
+          opacity: 0,
+          scale: 0.5,
+          duration: 0.4,
+          ease: "power1.inOut",
+        });
+      }
+    };
+
+    btnMenu.addEventListener("click", toggleMenu);
+    btnCloseMenu.addEventListener("click", toggleMenu);
+    const tl = gsap.timeline();
+    const handleMouseEnter = () => {
+      tl.to(showVideoMouse, {
+        scale: 1,
+        opacity: 1,
+        duration: 0.5,
+        ease: "power3.out",
+      });
+      tl.to(showVideoMouse, {
+        opacity: 0.7,
+
+        duration: 0.3,
+        ease: "power3.out",
+      });
+    };
+
+    const handleMouseMove = (e) => {
+      const rect = video.getBoundingClientRect();
+      gsap.to(showVideoMouse, {
+        top: e.clientY - rect.top - 10,
+        left: e.clientX - rect.left - 10,
+        duration: 0.2,
+        ease: "none",
+      });
+    };
+
+    const handleMouseActive = () => {
+      gsap.to(showVideoMouse, {
+        scale: 2,
+      });
+    };
+
+    const handleMouseLeave = () => {
+      gsap.to(showVideoMouse, {
+        scale: 0,
+        opacity: 0,
+        duration: 0.3,
+        ease: "power3.in",
+      });
+    };
+
+    video.addEventListener("mouseenter", handleMouseEnter);
+    video.addEventListener("mousemove", handleMouseMove);
+    video.addEventListener("mouseleave", handleMouseLeave);
+    video.addEventListener("click", handleMouseActive);
+
+    const squareSize = 40; // px
+
+    const vw = window.innerWidth;
+    const vh = window.innerHeight;
+
+    const cols = Math.ceil(vw / squareSize);
+    const rows = Math.ceil(vh / squareSize);
+    const total = cols * rows;
+
+    // Set grid template
+    container.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
+    container.style.gridTemplateRows = `repeat(${rows}, 1fr)`;
+
+    for (let i = 0; i < total; i++) {
+      const square = document.createElement("div");
+      square.className = "square";
+      container.appendChild(square);
+    }
+
+    const squares = document.querySelectorAll(".square");
+    console.log(squares);
+
     // Change theme
-    const btnMenu = document.getElementById("btn-menu");
-    const menu = document.getElementById("menu");
-    btnMenu.addEventListener("click", () => {
-      menu.classList.toggle("hidden");
+    const btnPaleteMenu = document.getElementById("btn-menu");
+    const menuPalete = document.getElementById("menu");
+    btnPaleteMenu.addEventListener("click", () => {
+      menuPalete.classList.toggle("hidden");
     });
     const select = document.getElementById("theme-select");
     select.addEventListener("change", (e) => {
@@ -16,6 +164,7 @@ export const navbarAnimation = (container) => {
       }
     });
 
+    const svgPath1 = document.getElementById("path1-svg");
     const path = document.getElementById("path");
     const totalLength = path.getTotalLength();
 
@@ -24,8 +173,9 @@ export const navbarAnimation = (container) => {
       motionPath: {
         path: path,
         align: path,
-        alignOrigin: [.5, 1],
+        alignOrigin: [0.5, 1],
       },
+      onComplete: () => svgPath1.classList.add("hidden"),
     });
 
     gsap.fromTo(
@@ -39,6 +189,7 @@ export const navbarAnimation = (container) => {
       }
     );
 
+    const svgPath2 = document.getElementById("path2-svg");
     const path2 = document.getElementById("path2");
     const totalLength2 = path2.getTotalLength();
 
@@ -49,7 +200,7 @@ export const navbarAnimation = (container) => {
       motionPath: {
         path: path2,
         align: path2,
-        alignOrigin: [0.5, 0.5],
+        alignOrigin: [0.5, 1],
       },
       ease: "power2.inOut",
     });
@@ -83,7 +234,10 @@ export const navbarAnimation = (container) => {
         alignOrigin: [0, 1],
       },
       ease: "power2.inOut",
-      onComplete: () => invisablePainBruch.play(),
+      onComplete: () => {
+        invisablePainBruch.play();
+        svgPath2.classList.add("hidden");
+      },
     });
 
     gsap.fromTo(

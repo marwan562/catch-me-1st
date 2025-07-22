@@ -14,7 +14,7 @@ export const heroAnimation = (container) => {
     });
 
     const tlBlurLeft = gsap.timeline({ yoyo: true, repeat: -1 });
-    
+
     tlBlurLeft.fromTo(
       "#blur-l",
       {
@@ -29,7 +29,7 @@ export const heroAnimation = (container) => {
       translateX: 0,
       translateY: 0,
       duration: 5,
-      repeat: 2,
+      repeat: -1,
       yoyo: true,
     });
 
@@ -38,7 +38,6 @@ export const heroAnimation = (container) => {
       {
         translateY: window.innerWidth,
         translateX: window.innerWidth,
-        duration: 20,
       },
       { translateX: 0, translateY: 0, duration: 5 }
     );
@@ -90,7 +89,8 @@ export const heroAnimation = (container) => {
     }
 
     if (pathHero) {
-      gsap.fromTo(
+      const tl = gsap.timeline({ repeat: -1 });
+      tl.fromTo(
         pathHero,
         {
           strokeDasharray: totalLengthPathHero,
@@ -98,17 +98,29 @@ export const heroAnimation = (container) => {
         },
         {
           strokeDashoffset: 0,
-          duration: 4.5,
+          duration: 3,
           delay: 1,
           ease: "back.out",
         }
       );
     }
 
-    gsap.from(".parag", {
-      opacity: 0,
-      duration: 3,
-      y: 70,
+    new SplitText(".description", {
+      type: "lines",
+      mask: "lines",
+      autoSplit: true,
+      smartWrap: true,
+      linesClass: "custom-underline",
+      onSplit(self) {
+        return gsap.from(self.lines, {
+          opacity: 0,
+          backgroundColor: "var(--primary-foreground)",
+          y: 40,
+          stagger: 0.2,
+          duration: 1,
+          ease: "power1.in",
+        });
+      },
     });
 
     document.fonts.load("1rem Playfair Display").then(() => {

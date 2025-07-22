@@ -2,7 +2,7 @@
 <html lang="en" data-theme="light-blue">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" type="image/svg+xml" href="/svg-section-1/logo.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="/src/style.css" rel="stylesheet" />
     <title>LGTM!</title>
@@ -11,18 +11,20 @@
     <div
       class="min-h-0 w-full bg-[var(--secondary-foreground)] font-playfairDisplay"
     >
+      <!-- Navbar -->
       <header
-        class="fixed top-3 left-1/2 transform -translate-x-1/2 z-50 w-1/4 shadow-md py-2 pr-5 px-4 rounded-full"
+        class="fixed top-3 left-1/2 transform -translate-x-1/2 z-20 w-[90%] md:w-1/2 shadow-md py-2 pr-5 px-4 rounded-full"
       >
         <div
           class="absolute inset-0 rounded-full bg-gradient-to-l from-[var(--primary-foreground)] to-[var(--primary-foreground)] via-[var(secondary-foreground)] blur-md -z-10"
         ></div>
 
-        <nav id="navbar" class="flex flex-row items-center justify-around">
-          <div class="logo">
+        <nav id="navbar" class="flex flex-row items-center justify-between">
+          <div class="logo cursor-pointer">
             <img class="w-full" src="/svg-section-1/logo.svg" alt="logo" />
           </div>
           <svg
+            id="path1-svg"
             class="absolute -left-3 -top-3 md:-top-2 md:left-0 stroke-[var(--primary)]"
             width="290"
             height="150"
@@ -36,7 +38,7 @@
               strokeWidth="2"
             />
           </svg>
-          <div class="hidden md:block">
+          <div class="block">
             <ul
               class="flex flex-row items-center relative justify-center gap-[16px]"
             >
@@ -51,6 +53,7 @@
                 stroke-width="2"
                 stroke-linecap="round"
                 stroke-linejoin="round"
+                class="absolute"
               >
                 <path d="m11 10 3 3" />
                 <path
@@ -61,6 +64,7 @@
                 />
               </svg>
               <svg
+                id="path2-svg"
                 class="absolute -top-6 -left-10 stroke-[var(--primary)]"
                 width="290"
                 height="150"
@@ -68,7 +72,6 @@
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  class=""
                   id="path2"
                   d="M-22,67 C-22,80.95 44.812,78.885 65.876,72.849 91.615,65.468 100.195,62.65 133.998,41.999 193.998,48 231,47 248,22 "
                   fill="none"
@@ -122,26 +125,132 @@
                   </svg>
                 </button>
               </div>
+              <button id="btn-menu-nav">
+                <img
+                  class="cursor-pointer"
+                  src="/svg-section-1/menu.svg"
+                  alt="menu"
+                />
+              </button>
             </ul>
-          </div>
-          <div class="block md:hidden mt-[24px]">
-            <button class="nav-section cursor-pointer">
-              <img class="w-full" src="/svg-section-1/menu.svg" alt="menu" />
-            </button>
           </div>
         </nav>
       </header>
 
+      <!-- Menu Navbar -->
+      <div
+        id="menu-nav"
+        class="fixed font-semibold z-1000 text-2xl rounded-b-3xl h-[75%] md:h-[65%] overflow-hidden w-full px-10 py-10 grid md:grid-cols-[4fr_3fr] opacity-0 translate-y-[-100%]"
+      >
+        <button
+          id="btn-close-menu-nav"
+          class="absolute right-8 top-6 cursor-pointer"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-x-icon lucide-x"
+          >
+            <path d="M18 6 6 18" />
+            <path d="m6 6 12 12" />
+          </svg>
+        </button>
+
+        <div
+          id="background-menu"
+          class="absolute -z-20 flex flex-wrap justify-center items-center w-full h-full"
+        ></div>
+
+        <div id="video" class="space-y-2 md:w-1/2">
+          <div
+            id="showVideoMouse"
+            class="fixed opacity-0 scale-0 bg-gradient-to-tl from-[var(--primary-foreground)] to-[var(--primary-foreground)] size-14 rounded-full font-mono text-[12px] shadow-lg shadow-[var(--primary-foreground)] flex items-center justify-center scale-y-75"
+          >
+            VISIT
+          </div>
+          <h2 class="controls font-orbitron flex items-center gap-2">
+            <div class="logo cursor-pointer">
+              <img class="w-full" src="/svg-section-1/logo.svg" alt="logo" />
+            </div>
+            <div class="controls h-[.20rem] w-full bg-black"></div>
+            <span class="text-sm shrink-0">INSPIRE WEB</span>
+          </h2>
+          <video
+            class="video cursor-pointer rounded-md aspect-auto object-cover"
+            loop
+            autoplay
+            muted
+          >
+            <source src="https://res.cloudinary.com/dgba7n7ct/video/upload/v1753144855/video_r5exky.mp4" type="video/mp4" />
+          </video>
+          <div class="flex justify-between items-center gap-2">
+            <h2 class="controls flex flex-row items-center gap-1">
+              <svg
+                class="cursor-pointer"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-play-icon lucide-play"
+              >
+                <polygon points="6 3 20 12 6 21 6 3" />
+              </svg>
+              <svg
+                class="cursor-pointer"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-list-video-icon lucide-list-video"
+              >
+                <path d="M12 12H3" />
+                <path d="M16 6H3" />
+                <path d="M12 18H3" />
+                <path d="m16 12 5 3-5 3v-6Z" />
+              </svg>
+            </h2>
+            <div class="controls h-[.20rem] w-full bg-black"></div>
+            <span class="controls text-sm">1:16</span>
+            <h2 class="controls">
+              <Scan size="{20}" />
+            </h2>
+          </div>
+        </div>
+
+        <div class="font-orbitron">
+          <ul class="space-y-6">
+            <li class="content-menu">HOME</li>
+            <li class="content-menu">ABOUT ME</li>
+            <li class="content-menu">SERVICES</li>
+            <li class="content-menu">CONTACT US</li>
+          </ul>
+        </div>
+      </div>
       <div
         class="font-semibold border-black border-x-2 max-w-full mx-[16px] overflow-hidden"
       >
         <div class="mx-[12px] md:mx-[30px]">
-          <!-- Navbar -->
-
           <!-- Hero Section -->
           <section id="hero-section">
             <div
-              class="flex flex-col-reverse relative md:flex-row items-start justify-between mt-[50px] max-w-full uppercase"
+              class="flex flex-col-reverse relative md:flex-row items-start justify-between mt-[60px] md:mt-[50px] max-w-full uppercase"
             >
               <div
                 class="font-extrabold text-[60px] md:text-[95px] leading-none max-w-[1258px]"
@@ -189,7 +298,7 @@
                     </svg>
                   </h2>
                   <p
-                    class="parag font-orbitron text-[20px] underline underline-offset-2 underline-black decoration-[var(--primary-foreground)] text-[var(--primary)] flex-1"
+                    class="description font-orbitron text-[20px] text-[var(--primary)] flex-1"
                   >
                     Creative Developer specializing in interactive web
                     experiences using GSAP, Three.js, and modern UI/UX design.
