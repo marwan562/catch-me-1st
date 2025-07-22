@@ -97,10 +97,9 @@ export const navbarAnimation = (container) => {
     };
 
     const handleMouseMove = (e) => {
-      const rect = video.getBoundingClientRect();
       gsap.to(showVideoMouse, {
-        top: e.clientY - rect.top - 10,
-        left: e.clientX - rect.left - 10,
+        y: e.clientY - 50,
+        x: e.clientX - 50,
         duration: 0.2,
         ease: "none",
       });
@@ -128,8 +127,8 @@ export const navbarAnimation = (container) => {
 
     const squareSize = 40; // px
 
-    const vw = window.innerWidth 
-    const vh = window.innerHeight / 2 
+    const vw = window.innerWidth;
+    const vh = window.innerHeight / 2;
 
     const cols = Math.ceil(vw / squareSize);
     const rows = Math.ceil(vh / squareSize);

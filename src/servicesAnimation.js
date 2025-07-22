@@ -138,32 +138,31 @@ export const servicesAnimation = (container) => {
       "+=1"
     );
 
-      document.querySelectorAll(".ticker").forEach((ticker) => {
-        const inner = ticker.querySelector(".ticker-wrap");
-        const content = inner.querySelector(".ticker-text");
-        const duration = ticker.getAttribute("data-duration");
-        inner.append(content.cloneNode(true));
+    document.querySelectorAll(".ticker").forEach((ticker) => {
+      const inner = ticker.querySelector(".ticker-wrap");
+      const content = inner.querySelector(".ticker-text");
+      const duration = ticker.getAttribute("data-duration");
+      inner.append(content.cloneNode(true));
 
-        const animations = [];
-        inner.querySelectorAll(".ticker-text").forEach((element) => {
-          const animation = gsap.to(element, {
-            x: "-100%",
-            repeat: -1,
-            duration: duration,
-            ease: "linear",
-          });
-          animations.push(animation);
+      const animations = [];
+      inner.querySelectorAll(".ticker-text").forEach((element) => {
+        const animation = gsap.to(element, {
+          x: "-100%",
+          repeat: -1,
+          duration: duration,
+          ease: "linear",
         });
-
-        ticker.addEventListener("mouseenter", () => {
-          animations.forEach((anim) => anim.pause());
-        });
-
-        ticker.addEventListener("mouseleave", () => {
-          animations.forEach((anim) => anim.play());
-        });
+        animations.push(animation);
       });
 
+      ticker.addEventListener("mouseenter", () => {
+        animations.forEach((anim) => anim.pause());
+      });
+
+      ticker.addEventListener("mouseleave", () => {
+        animations.forEach((anim) => anim.play());
+      });
+    });
   }, container);
 
   return () => ctx.revert();

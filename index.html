@@ -173,7 +173,7 @@
           class="absolute -z-20 flex flex-wrap justify-center items-center w-full h-full"
         ></div>
 
-        <div id="video" class="space-y-2 md:w-1/2">
+        <div class="space-y-2 md:w-1/2">
           <div
             id="showVideoMouse"
             class="fixed opacity-0 z-50 scale-0 bg-gradient-to-tl from-[var(--primary-foreground)] to-[var(--primary-foreground)] size-14 rounded-full font-mono text-[12px] shadow-lg shadow-[var(--primary-foreground)] flex items-center justify-center scale-y-75"
@@ -188,7 +188,8 @@
             <span class="text-sm shrink-0">INSPIRE WEB</span>
           </h2>
           <video
-            class="video cursor-pointer rounded-md aspect-auto object-cover"
+            id="video"
+            class="video cursor-none rounded-md aspect-auto object-cover"
             loop
             autoplay
             muted
@@ -211,7 +212,6 @@
                 stroke-width="2"
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                class="lucide lucide-play-icon lucide-play"
               >
                 <polygon points="6 3 20 12 6 21 6 3" />
               </svg>
@@ -226,7 +226,6 @@
                 stroke-width="2"
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                class="lucide lucide-list-video-icon lucide-list-video"
               >
                 <path d="M12 12H3" />
                 <path d="M16 6H3" />
@@ -834,7 +833,7 @@
             >03/</span
           >
           <h2
-            class="service-title text-start ml-[20px] md:ml-[30px] leading-tight font-[700] text-[64px] md:text-[128px]"
+            class="service-title relative text-start ml-[20px] md:ml-[30px] leading-tight font-[700] text-[64px] md:text-[128px]"
           >
             Services
           </h2>
