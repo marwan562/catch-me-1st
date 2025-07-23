@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light-blue">
+<html lang="en" data-theme="light-red">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/svg-section-1/logo.svg" />
@@ -102,8 +102,8 @@
                     id="theme-select"
                     class="w-full bg-white border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-2 focus:ring-[var(--primary)] focus:border-[var(--primary)] p-1"
                   >
-                    <option value="blue">🔵 Blue</option>
                     <option value="red">🔴 Red</option>
+                    <option value="blue">🔵 Blue</option>
                     <option value="yellow">🟡 Yellow</option>
                     <option value="zinc">⚫ Zinc</option>
                   </select>
@@ -347,60 +347,66 @@
 
               <div
                 id="images-mouse-move"
-                class="w-full cursor-none relative h-[550px] mb-[24px] grid grid-rows-3 grid-flow-col gap-1.5"
+                class="grid md:grid-flow-row grid-rows-4 overflow-hidden grid-cols-2 md:grid-rows-2 md:grid-cols-7 gap-[7px] mt-[48px] md:mt-[86px] h-[642px] md:h-[542px] max-w-full"
               >
+               
                 <div
-                  id="blur-r"
-                  class="hidden md:block absolute bg-[var(--primary-foreground)] size-44 -right-16 blur-3xl rounded-full -top-5"
-                ></div>
+                  class="headerImages rounded-lg relative w-full h-full md:col-span-2"
+                >
+                  <img
+                    src="/images-section-1/image (1).png"
+                    alt="Image-1"
+                    class="absolute top-0 left-0 w-full h-full object-cover rounded-lg"
+                  />
+                </div>
 
                 <div
-                  class="mouse z-20 fixed size-12 opacity-0 scale-0 shadow-2xl shadow-[var(--primary-foreground)] bg-[var(--primary-foreground)] rounded-full flex items-center justify-center"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="text-[var(--secondary-foreground)] animate-pulse"
-                  >
-                    <path d="M7 7h10v10" />
-                    <path d="M7 17 17 7" />
-                  </svg>
-                </div>
-                <div
-                  id="image1"
-                  class="row-span-3 transition-all ease-in-out duration-200"
+                  class="headerImages mainHeaderImages rounded-lg w-full h-full relative col-span-2 md:col-span-3"
                 >
                   <img
-                    src="/images-section-1/Frame.png"
-                    alt="image"
-                    class="object-cover rounded-md w-full h-full border-2 p-1 border-[var(--primary-foreground)]"
+                    src="/images-section-1/image (2).png"
+                    alt="Image-2"
+                    class="absolute top-0 left-0 w-full h-full object-cover rounded-lg"
                   />
                 </div>
+
                 <div
-                  id="image2"
-                  class="col-span-2 row-span-2 transition-all ease-in duration-200"
+                  class="headerImages rounded-lg w-full h-full relative -order-2 md:-order-none md:col-span-2"
                 >
                   <img
-                    src="/images-section-1/Frame(1).png"
-                    alt="image"
-                    class="object-cover rounded-md w-full h-full border-2 p-1 border-[var(--primary-foreground)]"
+                    src="/images-section-1/image (3).png"
+                    alt="Image-3"
+                    class="absolute top-0 left-0 w-full h-full object-cover rounded-lg"
                   />
                 </div>
+
                 <div
-                  id="image3"
-                  class="col-span-2 transition-all ease-out duration-200"
+                  class="rounded-lg bottomImages mainBottomImage z-10 w-full h-full relative col-span-2 md:col-span-3"
                 >
                   <img
-                    src="/images-section-1/image-3.jpg"
-                    alt="image"
-                    class="object-cover rounded-md w-full h-full border-2 p-1 border-[var(--primary-foreground)]"
+                    src="/images-section-1/image (4).png"
+                    alt="Image-4"
+                    class="absolute top-0 left-0 w-full h-full object-[70%_30%] object-cover rounded-lg"
+                  />
+                </div>
+
+                <div
+                  class="rounded-lg bottomImages z-10 origin-bottom w-full h-full relative md:col-span-2"
+                >
+                  <img
+                    src="/images-section-1/image (5).png"
+                    alt="Image-5"
+                    class="absolute top-0 left-0 w-full h-full object-cover rounded-lg"
+                  />
+                </div>
+
+                <div
+                  class="rounded-lg bottomImages z-10 origin-bottom w-full h-full relative md:col-span-2"
+                >
+                  <img
+                    src="/images-section-1/image (6).png"
+                    alt="Image-6"
+                    class="absolute top-0 left-0 w-full h-full object-cover rounded-lg"
                   />
                 </div>
               </div>
