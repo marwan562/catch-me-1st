@@ -1,11 +1,27 @@
 import gsap from "gsap";
 
-let listeners = [];
+const container = document.getElementById("background-menu");
+
+// Prepare squares
+const squareSize = 40;
+const vw = window.innerWidth;
+const vh = window.innerHeight / 2;
+
+const cols = Math.ceil(vw / squareSize);
+const rows = Math.ceil(vh / squareSize);
+const total = cols * rows;
+
+container.innerHTML = "";
+
+for (let i = 0; i < total; i++) {
+  const square = document.createElement("div");
+  square.className = "square opacity-0 scale-50";
+  container.appendChild(square);
+}
 
 export const navbarAnimation = (container) => {
   const ctx = gsap.context(() => {
     // open menu
-    const container = document.getElementById("background-menu");
     const btnMenu = document.getElementById("btn-menu-nav");
     const btnCloseMenu = document.getElementById("btn-close-menu-nav");
     const menu = document.getElementById("menu-nav");
@@ -124,24 +140,6 @@ export const navbarAnimation = (container) => {
     video.addEventListener("mousemove", handleMouseMove);
     video.addEventListener("mouseleave", handleMouseLeave);
     video.addEventListener("click", handleMouseActive);
-
-    const squareSize = 40; // px
-
-    const vw = window.innerWidth;
-    const vh = window.innerHeight / 2;
-
-    const cols = Math.ceil(vw / squareSize);
-    const rows = Math.ceil(vh / squareSize);
-    const total = cols * rows;
-
-    for (let i = 0; i < total; i++) {
-      const square = document.createElement("div");
-      square.className = "square";
-      container.appendChild(square);
-    }
-
-    const squares = document.querySelectorAll(".square");
-    console.log(squares);
 
     // Change theme
     const btnPaleteMenu = document.getElementById("btn-menu");
