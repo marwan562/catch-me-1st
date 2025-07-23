@@ -66,18 +66,6 @@ body,
   --secondary-foreground: #f1f1f1;
 }
 
-#image2 {
-  transition: all 2s ease-in;
-}
-
-#image3 {
-  transition: all 2s ease-out;
-}
-
-#image1 {
-  transition: all 2s ease-in-out;
-}
-
 @layer components {
   .custom-underline {
     @apply underline underline-offset-2 decoration-[var(--primary-foreground)];

@@ -6,13 +6,6 @@ export const heroAnimation = (container) => {
     const pathHero = document.getElementById("path-hero");
     const totalLengthPathHero = pathHero?.getTotalLength?.();
 
-    gsap.from(["#image1 img", "#image2 img", "#image3 img"], {
-      opacity: 0,
-      translateY: 600,
-      duration: 3,
-      stagger: 0.2,
-    });
-
     const tlBlurLeft = gsap.timeline({ yoyo: true, repeat: -1 });
 
     tlBlurLeft.fromTo(
