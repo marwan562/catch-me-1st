@@ -15,6 +15,19 @@ container.innerHTML = "";
 
 for (let i = 0; i < total; i++) {
   const square = document.createElement("div");
+  square.addEventListener("mouseover", () => {
+    gsap.to(square, {
+      duration: 0.5,
+      background: "var(--secondary-foreground)",
+    });
+  });
+
+  square.addEventListener("mouseleave", () => {
+    gsap.to(square, {
+      duration: 0.5,
+      background: "var(--primary-foreground)",
+    });
+  });
   square.className = "square opacity-0 scale-50";
   container.appendChild(square);
 }

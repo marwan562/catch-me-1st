@@ -33,6 +33,21 @@ body,
 
   --secondary: #595959;
   --secondary-foreground: #ffffff;
+
+  #logo,
+  #menu,
+  #btn-menu,
+  #btn-menu-nav {
+    filter: invert(1);
+  }
+
+  #menu-nav {
+    color: var(--secondary);
+  }
+
+  .line-video {
+    background-color: var(--secondary);
+  }
 }
 
 [data-theme="light-yellow"] {
