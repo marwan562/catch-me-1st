@@ -132,10 +132,11 @@ export const heroAnimation = (container) => {
       gsap.from(splitTitle.chars, {
         opacity: 0,
         ease: "back.out",
-        duration: 2,
+        duration: 1,
         stagger: {
+          amount:1,
           from: "random",
-          each: 0.2,
+          each: 0.4,
           repeat: -1,
         },
       });
