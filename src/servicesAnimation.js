@@ -31,13 +31,14 @@ export const servicesAnimation = (container) => {
       autoSplit: true,
       onSplit(self) {
         gsap.from(self.words, {
-          duration: 1,
+          duration: 0.5,
           opacity: 0,
           ease: "back.out",
           stagger: {
             yoyo: true,
+            amount: 2,
             from: "random",
-            each: 0.2,
+            each: 0.1,
             repeat: -1,
           },
           color: "var(--primary-foreground)",
@@ -50,15 +51,32 @@ export const servicesAnimation = (container) => {
       },
     });
 
+    const appendSquareChileInContainer = (container) => {
+      for (let i = 0; i < 70; i++) {
+        const square = document.createElement("div");
+        square.className = "bg-[var(--secondary-foreground)] size-10 z-50";
+        container.appendChild(square);
+      }
+    };
+
     const images = gsap.utils.toArray(".image");
+    const container1 = document.getElementById("squares-img-1");
+    const container2 = document.getElementById("squares-img-2");
+    appendSquareChileInContainer(container1);
+    appendSquareChileInContainer(container2);
+
     images.forEach((el) => {
-      gsap.from(el, {
-        xPercent: -100,
-        duration: 1,
-        stagger: 0.3,
+      gsap.to([container1.childNodes, container2.childNodes], {
+        opacity: 0,
+        ease: "back.out",
+        duration: 0.5,
+        stagger: {
+          amount: 1,
+          from: "random",
+        },
         scrollTrigger: {
           trigger: el,
-          start: "top 80%",
+          start: "top 75%",
           toggleActions: "play none none reverse",
         },
       });
