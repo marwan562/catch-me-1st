@@ -43,6 +43,7 @@ export const heroAnimation = (container) => {
     );
 
     const imagesMouseMove = document.getElementById("images-mouse-move");
+    const mouse = document.querySelector("#images-mouse-move .mouse");
 
     const tl = gsap.timeline({
       defaults: { duration: 0.4, ease: "power2.inOut" },
@@ -51,7 +52,7 @@ export const heroAnimation = (container) => {
     });
 
     tl.fromTo(
-      ".mouse",
+      mouse,
       {
         scale: 1,
         backgroundColor: "var(--primary)",
@@ -64,7 +65,7 @@ export const heroAnimation = (container) => {
 
     const handleMouseMove = (e) => {
       if (imagesMouseMove) {
-        gsap.to(".mouse", {
+        gsap.to(mouse, {
           top: e.clientY - 30,
           left: e.clientX - 30,
           duration: 0.2,
@@ -72,14 +73,16 @@ export const heroAnimation = (container) => {
           opacity: 1,
           scale: 1,
           pointerEvents: "none",
+          onStart: () => (document.body.style.cursor = "none"),
         });
       }
     };
 
     const handleMouseLeave = () => {
-      gsap.to(".mouse", {
+      gsap.to(mouse, {
         opacity: 0,
         scale: 0,
+        onStart: () => (document.body.style.cursor = "default"),
       });
     };
 
